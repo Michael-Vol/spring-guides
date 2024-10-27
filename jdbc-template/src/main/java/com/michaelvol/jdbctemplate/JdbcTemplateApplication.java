@@ -30,7 +30,7 @@ public class JdbcTemplateApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         log.info("Creating tables");
 
-        jdbcTemplate.execute("DROP TABLE CUSTOMERS IF EXISTS");
+        jdbcTemplate.execute("DROP  TABLE IF EXISTS CUSTOMERS");
         jdbcTemplate.execute("CREATE TABLE CUSTOMERS(" + "ID SERIAL, FIRST_NAME VARCHAR(255), LAST_NAME VARCHAR(255))");
         List<Object[]> splitUpNames = Arrays.asList("John Woo", "Jeff Dean", "Josh Bloch", "Josh Long").stream()
                                             .map(name -> name.split(" "))
